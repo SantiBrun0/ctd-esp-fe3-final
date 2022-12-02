@@ -7,6 +7,11 @@ const Form = () => {
   return (
     <div>
       <form>
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" />
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
