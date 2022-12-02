@@ -8,10 +8,10 @@ const Form = () => {
     <div>
       <form>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" className="input-form" />
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" />
-        <button type="submit">Submit</button>
+        <input type="email" name="email" className="input-form" />
+        <button type="submit" className="btn-form">SUBMIT</button>
       </form>
     </div>
   );
