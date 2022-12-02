@@ -1,5 +1,6 @@
 
 import { Route, Routes } from "react-router-dom";
+import ContextProvider from './Components/utils/ContextGlobal'
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Detail from "./Routes/Detail";
@@ -10,7 +11,8 @@ import Favs from './Routes/Favs'
 
 function App() {
   return (
-      <div className="App">
+    <ContextProvider >
+    <div className="App">
           <Navbar/>
             <Routes>
               <Route path='/' element={<Home />}/>
@@ -20,6 +22,7 @@ function App() {
             </Routes>
           <Footer/>
       </div>
+    </ContextProvider>
   );
 }
 

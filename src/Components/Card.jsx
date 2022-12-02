@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Card = ({ name, username, id }) => {
+const Card = ({ data }) => {
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
