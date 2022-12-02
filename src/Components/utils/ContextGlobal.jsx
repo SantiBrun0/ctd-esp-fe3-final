@@ -1,7 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
-import { createContext } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 
 export const initialState = {theme: "", data: []}
 
@@ -10,6 +8,7 @@ export const ContextGlobal = createContext();
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   
+  const [theme, setTheme] = useState("light")
   const [dentist, setDentist] = useState([])
 
   const getDentist = () => {
@@ -19,16 +18,21 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     getDentist()
-  })
+  }, [] )
   
 
   return (
     <ContextGlobal.Provider value={{
-      dentist
+      dentist,
+      theme, setTheme
     }}>
       {children}
     </ContextGlobal.Provider>
   );
 };
 
-export default ContextProvider
+export default ContextProvider;
+
+export const useContextGlobal = () => {
+  return useContext(ContextGlobal)
+}

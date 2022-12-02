@@ -1,13 +1,12 @@
 import React from 'react'
-import { useContext } from 'react'
-import ContextGlobal from '../Components/utils/ContextGlobal'
+import { useContextGlobal } from '../Components/utils/ContextGlobal'
 import Card from '../Components/Card'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
 
-  const dentist = useContext( ContextGlobal )
+  const { dentist } = useContextGlobal()
 
   console.log(dentist);
 
@@ -15,7 +14,7 @@ const Home = () => {
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-        {dentist.map(dentist => (<Card data={dentist} />))}
+        {dentist.map(dentist => (<Card key={dentist.id} data={dentist} />))}
       </div>
     </main>
   )
