@@ -1,19 +1,26 @@
 import axios from "axios";
+import { useReducer } from "react";
 import { useEffect, useState, createContext, useContext } from "react";
 
-export const initialState = { theme: "", data: [] }; //Esto se usa si lo hacemos con useReducer (creo jeje)
+export const initialState = { theme: "dark" }; //Esto se usa si lo hacemos con useReducer (creo jeje)
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "theme":
+      return { theme: state.theme === "light" ? "dark" : "light" };
+
+    default:
+      throw new Error();
+  }
+};
 
 export const ContextGlobal = createContext();
 
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
-  const [theme, setTheme] = useState("light"); //Esto lo agregue para hacer el theme con useState, VER!;
+  const [theme, dispatch] = useReducer(reducer, initialState); //Esto lo agregue para hacer el theme con useState, VER!;
   const [dentist, setDentist] = useState([]);
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
 
   const getDentist = () => {
     axios
@@ -30,7 +37,7 @@ const ContextProvider = ({ children }) => {
       value={{
         dentist,
         theme,
-        toggleTheme,
+        dispatch,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ import { useContextGlobal } from "./utils/ContextGlobal";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const { toggleTheme } = useContextGlobal();
+  const { dispatch } = useContextGlobal();
 
   return (
     <nav>
@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link to="/contact">Contact</Link>
         <Link to="/favs">Favs</Link>
       </div>
-      <button className="btn-theme" onClick={toggleTheme}>
+      <button className="btn-theme" onClick={() => dispatch({ type: "theme" })}>
         Change theme
       </button>
     </nav>
