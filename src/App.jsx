@@ -8,7 +8,7 @@ import Favs from "./Routes/Favs";
 import { useContextGlobal } from "./Components/utils/ContextGlobal";
 
 function App() {
-  const { theme, toggleTheme } = useContextGlobal();
+  const { theme } = useContextGlobal();
 
   return (
     <div className="App" id={theme}>

@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState, createContext, useContext } from "react";
 
-const ContextGlobal = createContext();
+export const initialState = { theme: "", data: [] }; //Esto se usa si lo hacemos con useReducer (creo jeje)
+
+export const ContextGlobal = createContext();
 
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("light"); //Esto lo agregue para hacer el theme con useState, VER!;
   const [dentist, setDentist] = useState([]);
 
   const toggleTheme = () => {
