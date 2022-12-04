@@ -5,10 +5,10 @@ import { useContextGlobal } from "./utils/ContextGlobal";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const { dispatch } = useContextGlobal();
+  const { dispatch, theme } = useContextGlobal();
 
   return (
-    <nav>
+    <nav className="nav" id={theme.theme}>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <div className="links-navbar">

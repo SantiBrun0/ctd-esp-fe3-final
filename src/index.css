@@ -19,6 +19,11 @@ code {
   cursor: pointer;
 }
 
+#dark .favButton {
+  background-color: #ca4444;
+  color: #f1f1f1;
+}
+
 h1 {
   text-align: center;
 }
@@ -67,7 +72,7 @@ footer {
   padding: 2rem;
   position: relative;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   height: 40px;
   margin-top: 2rem;
 }
@@ -209,6 +214,15 @@ tr:nth-child(even) {
   background-color: #12121296;
   color: white;
 }
-#dark > a {
+#dark .nav a {
+  color: white;
+}
+#dark .footer {
+  background-color: #12121298;
+  color: white;
+}
+
+#dark .nav {
+  background-color: #12121298;
   color: white;
 }
