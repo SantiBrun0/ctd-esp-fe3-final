@@ -25,6 +25,14 @@ code {
   color: #f1f1f1;
 }
 
+#dark .favButton:hover {
+  cursor: pointer;
+  background-color: #cd2020;
+}
+.favButton:hover {
+  background-color: #cd2020;
+}
+
 h1 {
   text-align: center;
 }
