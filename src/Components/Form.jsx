@@ -12,24 +12,27 @@ const Form = () => {
 
   const [validation, setValidation] = useState(false)
 
-  const handleSubmit = (e) => {
 
-    e.preventDefault()
+  const validateName = () => {
 
     let nameUser = values.name.split(" ")
 
     if (nameUser.length < 2) return alert("por favor ingrese Nombre y apellido")
     if (nameUser[0].length < 3 || nameUser[1].length < 3) return alert("por favor ingrese un nombre/apellido valido")
 
-    let emailUser = values.email.split("@")
+    return true
 
+  }
+
+  const validateEmail = () => {
+
+    let emailUser = values.email.split("@")
     if (emailUser.length < 2) return alert("Email incorrecto, debe contener una '@' y una extension valida como '.com'")
 
     let dotCom = emailUser[1].split(".")
-
     if (dotCom.length < 2) return alert("Email incorrecto, debe contener una '@' y una extension valida como '.com'")
-    
-    setValidation(true)
+
+    return true
 
   }
 
@@ -44,6 +47,20 @@ const Form = () => {
     }
 
     setValues(newValues)
+
+  }
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault()
+
+    let nameValidation = validateName()
+
+    let emailValidation = validateEmail()
+
+    if (nameValidation && emailValidation) {
+      setValidation(true)
+    }
 
   }
 
