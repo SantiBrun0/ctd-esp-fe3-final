@@ -2,7 +2,7 @@ import axios from "axios";
 import { useReducer } from "react";
 import { useEffect, useState, createContext, useContext } from "react";
 
-export const initialState = { theme: "dark" }; //Esto se usa si lo hacemos con useReducer (creo jeje)
+export const initialState = { theme: "light" }; //Esto se usa si lo hacemos con useReducer (creo jeje)
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -21,6 +21,22 @@ const ContextProvider = ({ children }) => {
 
   const [theme, dispatch] = useReducer(reducer, initialState); //Esto lo agregue para hacer el theme con useState, VER!;
   const [dentist, setDentist] = useState([]);
+  const [favs, setFavs] = useState([])
+  
+
+  const KEY = "card.info"
+
+  useEffect(() => {
+      const storedFavs = JSON.parse(localStorage.getItem(KEY));
+      if (storedFavs) {
+          setFavs(storedFavs)
+      }
+  }, [])
+  
+  useEffect(() => {
+      localStorage.setItem(KEY, JSON.stringify(favs))
+  }, [favs])
+
 
   const getDentist = () => {
     axios
@@ -38,6 +54,8 @@ const ContextProvider = ({ children }) => {
         dentist,
         theme,
         dispatch,
+        favs,
+        setFavs
       }}
     >
       {children}
