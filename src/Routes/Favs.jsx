@@ -6,7 +6,7 @@ const Favs = () => {
   const card = localStorage.getItem("card");
   const parsedCard = JSON.parse(card);
   return (
-    <>
+    <div className="container-favs">
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
@@ -18,7 +18,7 @@ const Favs = () => {
         </div>
         {/* Deberan renderizar una Card por cada uno de ellos */}
       </div>
-    </>
+    </div>
   );
 };
 
