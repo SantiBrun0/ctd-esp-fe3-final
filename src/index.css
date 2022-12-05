@@ -207,28 +207,28 @@ table {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  border: 1px solid #e5e5e5;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #e5e5e5;
 }
 
 #dark {
-  background-color: #12121296;
+  background-color: #1c1c1c98;
   color: white;
 }
 #dark .nav a {
   color: white;
 }
 #dark .footer {
-  background-color: #12121298;
+  background-color: #1c1c1c98;
   color: white;
 }
 
 #dark .nav {
-  background-color: #12121298;
+  background-color: #1c1c1c98;
   color: white;
 }
