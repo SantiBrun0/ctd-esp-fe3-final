@@ -1,4 +1,5 @@
 import React from "react";
+import { useReducer } from "react";
 import { useEffect, useState, createContext, useContext } from "react";
 import { useContextGlobal } from "./utils/ContextGlobal";
 
