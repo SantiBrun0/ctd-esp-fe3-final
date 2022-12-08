@@ -8,11 +8,15 @@ const Favs = () => {
 
   const { favs } = useContextGlobal()
 
+    let filteredFavs = favs.filter((item, index) => {
+      return favs.indexOf(item) === index
+    })
+
   return (
     <>
       <h1>Dentists Favs</h1>
       <div className="container-favs">
-        {favs.map(item => {
+        {filteredFavs.map(item => {
           return (
             <Link to={`/detail/${item.id}`} key={item.id} className="link-card">
               <div className="card-grid">

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useReducer } from "react";
 import { useEffect, useState, createContext, useContext } from "react";
 
-export const initialState = { theme: "light" }; //Esto se usa si lo hacemos con useReducer (creo jeje)
+export const initialState = { theme: "light" };
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -18,26 +18,24 @@ export const ContextGlobal = createContext();
 
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-
-  const [theme, dispatch] = useReducer(reducer, initialState); //Esto lo agregue para hacer el theme con useState, VER!;
+  
+  const [theme, dispatch] = useReducer(reducer, initialState);
   const [dentist, setDentist] = useState([]);
   const [favs, setFavs] = useState([])
   
-
   const KEY = "card.info"
-
-  useEffect(() => {
-      const storedFavs = JSON.parse(localStorage.getItem(KEY));
-      if (storedFavs) {
-          setFavs(storedFavs)
-      }
-  }, [])
+  
+  // useEffect(() => {
+  //   const storedFavs = JSON.parse(localStorage.getItem(KEY));
+  //   if (storedFavs) {
+  //     setFavs(storedFavs)
+  //   }
+  // }, [])    //------> por algun motivo esto no funciona, cada vez que se recarga la pagina el local storage se resetea a un array vacio
   
   useEffect(() => {
-      localStorage.setItem(KEY, JSON.stringify(favs))
+    localStorage.setItem(KEY, JSON.stringify(favs))
   }, [favs])
-
-
+  
   const getDentist = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
@@ -48,6 +46,7 @@ const ContextProvider = ({ children }) => {
     getDentist();
   }, []);
 
+
   return (
     <ContextGlobal.Provider
       value={{
@@ -55,7 +54,7 @@ const ContextProvider = ({ children }) => {
         theme,
         dispatch,
         favs,
-        setFavs
+        setFavs,
       }}
     >
       {children}

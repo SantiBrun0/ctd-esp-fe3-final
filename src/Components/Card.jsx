@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/ContextGlobal";
@@ -8,8 +9,19 @@ const Card = ({ data }) => {
 
   const [active, setActive] = useState(false);
 
+  useEffect(() => {
+    if (favs.includes(data)) {
+      setActive(true)
+    }
+  },[favs, data])
+  
+
   const addFav = () => {
+    if (favs.includes(data)) {
+      return null
+    }
     setFavs([...favs, data]);
+    alert(`dentista ${data.name} agregado como favoritos`)
   };
 
   return (
@@ -27,7 +39,7 @@ const Card = ({ data }) => {
       <button
         onClick={() => {
           addFav();
-          setActive(!active);
+          setActive(true)
         }}
         className={`favButton ${active ? "active" : ""}`}
         id={theme.theme}

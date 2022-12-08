@@ -6,7 +6,7 @@ import Card from '../Components/Card'
 
 const Home = () => {
   const { dentist } = useContextGlobal();
-
+  
   return (
     <main className="">
       <h1>Home</h1>
