@@ -2,12 +2,8 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useContextGlobal } from '../Components/utils/ContextGlobal'
 
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Detail = () => {
  
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   const params = useParams()
   const navigate = useNavigate()
@@ -19,8 +15,6 @@ const Detail = () => {
   return (
     <>
       <h1>Detail Dentist id: {params.id}</h1>
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <div className='container-card-detail'>
         <div className='card-detail'>
           <img src="/images/doctor.jpg" alt="img-doc" className="img-doc-detail" />
