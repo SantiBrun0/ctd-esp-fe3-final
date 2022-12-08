@@ -1,4 +1,6 @@
-# ctd-fe3-final / LUCAS DE ANDRES y BRUNO SANTIAGO
+# LUCAS DE ANDRES - BRUNO SANTIAGO
+----------------------------------------------------------
+# ctd-fe3-final
 
 Examen Final de Frontend III
 
